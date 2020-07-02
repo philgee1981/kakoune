@@ -26,8 +26,7 @@ define-command x11-send-text -docstring "send the selected text to the repl wind
     nop %sh{
         printf %s\\n "${kak_selection}" | xsel -i
         wid=$(xdotool getactivewindow)
-        xdotool search --name kak_repl_window windowactivate
-        xdotool key --clearmodifiers "Shift+Insert"
+        xdotool search --name kak_repl_window key --clearmodifiers Shift+Insert
         xdotool windowactivate $wid
     }
 }
